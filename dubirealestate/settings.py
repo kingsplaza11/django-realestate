@@ -26,7 +26,7 @@ SECRET_KEY = 's0-ch_u1k&+zhq+jiayv&lkl2us$-f)j!b337$9f%9qhza6!m)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.dempire.com', 'dempire.com', 'dempire.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['dempire.herokuapp.com']
 
 
 # Application definition
