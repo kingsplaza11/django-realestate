@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 's0-ch_u1k&+zhq+jiayv&lkl2us$-f)j!b337$9f%9qhza6!m)'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['dubiempire.herokuapp.com']
 
