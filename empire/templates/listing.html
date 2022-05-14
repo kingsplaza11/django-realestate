@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/listing.css' %}">
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="breadcrumb-item active">{{object.title}}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="row">
+          <div class="col-lg-5 mt-5">
+              <div class="card mb-3">
+                  <img class="card-img img-fluid" src="{{object.image.url}}" alt="Card image cap" id="product-detail">
+              </div>
+              <div class="row">
+                  <!--Start Controls-->
+                  <div class="col-1 align-self-center">
+                      <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                          <i class="text-dark fas fa-chevron-left"></i>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                  </div>
+                  <!--End Controls-->
+                  <!--Start Carousel Wrapper-->
+                  <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                      <!--Start Slides-->
+                      <div class="carousel-inner product-links-wap" role="listbox">
+
+                          <!--First slide-->
+                          <div class="carousel-item active">
+                              <div class="row">
+                                {% if object.photo_1 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_1.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_1.url}}" alt="Product Image 1">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_2 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_2.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_2.url}}" alt="Product Image 2">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_3 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_3.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_3.url}}" alt="Product Image 3">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_4 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_4.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_4.url}}" alt="Product Image 3">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_5 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_5.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_5.url}}" alt="Product Image 3">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_6 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_6.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_6.url}}" alt="Product Image 3">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                                {% if object.photo_7 %}
+                                  <div class="col-4">
+                                      <a href="{{object.photo_7.url}}">
+                                          <img class="card-img img-fluid" src="{{object.photo_7.url}}" alt="Product Image 3">
+                                      </a>
+                                  </div>
+                                {% endif %}
+                              </div>
+                          </div>
+                          <!--/.First slide-->
+                      </div>
+                  </div>
+                  <!--End Carousel Wrapper-->
+                  <!--Start Controls-->
+                  <div class="col-1 align-self-center">
+                      <a href="#multi-item-example" role="button" data-bs-slide="next">
+                          <i class="text-dark fas fa-chevron-right"></i>
+                          <span class="sr-only">Next</span>
+                      </a>
+                  </div>
+                  <!--End Controls-->
+              </div>
+          </div>
+
+          <div class="col-lg-7 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h2">{{object.title}}</h1>
+                    <p class="h3 py-2">Asking price: ${{object.price}}</p>
+                  
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>state:</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text-muted py-2"><strong>{{object.state}}</strong></p>
+                        </li>
+                    </ul>
+
+                    <h6>Description:</h6>
+                    <p>{{object.description}}</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h6>garage :</h6>
+                        </li>
+                        <li class="list-inline-item">
+                            <p class="text-muted"><strong>{{object.garage}}</strong></p>
+                        </li>
+                    </ul>
+
+                    <h6>Specification:</h6>
+                    <ul class="list-unstyled pb-3">
+                        <li>city: {{object.city}}</li>
+                        <li>location: {{object.location}}</li>
+                        <li>Bedrooms: {{ object.bedrooms }}</li>
+                        <li>Bathrooms: {{ object.bathrooms }}</li>
+                        <li>lot size: {{object.lot_size}}</li>
+                        <li>Square Feet: {{ object.sqft }}</li>
+                        <li>Date Added: {{ object.list_date }}</li>
+                        <li>Category: {{ object.category }}</li>
+                    </ul>
+                        <input type="hidden">
+                        <div class="row">
+                        </div>
+                        <div class="col-md-3">
+                          <div class="card mb-3">
+                            <img class="card-img-top" src="{{object.realtor.photo.url}}" alt="Seller of the month">
+                            <div class="card-body">
+                              <h5 class="card-title">Property Realtor</h5>
+                              <h6 class="text-secondary">{{object.realtor}}</h6>
+                            </div>
+                          </div>
+                          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+          <!-- Fields -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="/contacts" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              {% if user.is_authenticated %}
+                <input type="hidden" name = "user_id" value="{{user.id}}">
+              {% else %}
+                <input type="hidden" name = "user_id" value="0">
+              {% endif %}
+              <input type="hidden" name = "realtor_email" value="{{object.realtor.email}}">
+              <input type="hidden" name = "listing_id" value="{{object.id}}">
+              <input type="hidden" name = "listing" value="{{object.title}}">
+              <input type="hidden" name = "name" {% if user.is_authenticated %}value="{{user.username}}" {% endif %}>
+              <input type="hidden" name = "email" {% if user.is_authenticated %}value="{{user.email}}" {% endif %}>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Phone:</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Message:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/listing.js' %}"></script>
+
+{% endblock %}

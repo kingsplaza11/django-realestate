@@ -1,0 +1,131 @@
+{% load static %}
+{% load category_template_tag %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>dubi empire</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lightbox.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/empire.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.css' %}">
+
+  </head>
+
+  <header class="navbar-brand">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/"><h2>Dubem <em>Empire</em></h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark-red" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>CATEGORY</b> </a>
+  
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-item text-dark-red">
+                  <li class="dropdown-item text-dark-red">
+                    {% categories %}
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ceeus">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+                <li class="nav-item dropdown mr-5">
+                    <a class="nav-link dropdown-toggle text-dark-red" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-item disabled" href="#">Signed in as <strong>{{ user.username }}</strong></div>
+                        <a class="dropdown-item text-dark-red" href="{% url 'logout' %}">Log Out</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-dark-red" href="{% url 'login' %}">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark-red" href="{% url 'register' %}">Register</a>
+                </li>
+            {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+    {% block content %}
+    
+    {% endblock %}
+  </body>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-content">
+            <p>Copyright &copy; 2022 Dubi Empire Co., Ltd.
+
+          - Design: <a rel="nofollow noopener" href="/" target="_blank">dubi empire</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+
+  <!-- Additional Scripts -->
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/lightbox.min.js' %}"></script>
+  <script src="{% static 'js/owl.js' %}"></script>
+  <script src="{% static 'js/slick.js' %}"></script>
+  <script src="{% static 'js/isotope.js' %}"></script>
+  <script src="{% static 'js/accordions.js' %}"></script>
+
+
+  <script language = "text/Javascript">
+    cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+    function clearField(t){                   //declaring the array outside of the
+    if(! cleared[t.id]){                      // function makes it static and global
+        cleared[t.id] = 1;  // you could use true and false, but that's more typing
+        t.value='';         // with more chance of typos
+        t.style.color='#fff';
+        }
+    }
+  </script>
+     
+</html>

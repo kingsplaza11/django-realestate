@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load category_template_tag %}
+{% block content %}
+    <div class="page-heading products-heading header-text" style="background-image: url(/static/images/{{category_image}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="text-content">
+                    <h2>{{ category_title }}</h2>
+                    <h4>{{ category_description }}</h4>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters">
+                    <ul>
+                        {% categories_li_a %}
+                    </ul>
+              </div>
+            </div>
+            <div class="col-md-12">
+                <div class="filters-content">
+                    <div class="row grid">
+                        {% for property in object_list %}
+                            <div class="col-lg-4 col-md-4 all des">
+                            <div class="product-item">
+                                <a href="{{ property.get_absolute_url }}"><img src="{{ property.image.url }}" alt=""></a>
+                                <div class="down-content">
+                                <a href="{{ property.get_absolute_url }}"><h4>{{property.title}}</h4></a>
+                                <h6>${{property.price}}</h6>
+                                <p>{{property.description}}.</p>
+                                <ul class="stars">
+                                    <li><i class=""></i>Bedrooms: {{property.bedrooms}}</li>
+                                </ul>
+                                <span>Bathrooms: ({{property.bathrooms}})</span>
+                                </div>
+                            </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
