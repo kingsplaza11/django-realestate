@@ -78,9 +78,8 @@ smart-open==5.2.1
 soupsieve==2.3.1
 sqlparse==0.3.0
 threadpoolctl==3.1.0
-tornado==5.1
+tornado==4.5.3
 Twisted==21.7.0
-twisted-iocpsupport==1.0.2
 txaio==21.2.1
 typing_extensions==4.0.1
 tzdata==2021.5
