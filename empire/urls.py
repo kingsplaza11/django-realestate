@@ -12,7 +12,7 @@ urlpatterns = [
     path('success', views.success, name="success"),
     path('order-in-proccess', views.order_in_p, name="order-in-proccess" ),
     path('ceeus/', views.ceeus, name="ceeus"),
-    path('listing/<slug>', PropertyDetailView.as_view(), name='listing'),
+    path('listing/<slug>', views.PropertyDetail, name='listing'),
     path('category/<slug>/', CategoryView.as_view(), name='category'),
     path('about/', AboutView.as_view(), name='about'),
 ]
