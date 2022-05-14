@@ -31,6 +31,7 @@ class CategoryView(View):
         }
         return render(self.request, "category.html", context)
 
+@login_required
 class PropertyDetailView(DetailView):
     model = Property
     template_name = 'listing.html'
@@ -55,18 +56,11 @@ def contacts(request):
             is_present = Contact.objects.filter(user_id = user_id, listing_id = listing_id)
             if is_present:
                 messages.error(request, "You've already made an inquiry for this listing.")
-                return redirect('')
+                return redirect('order-in-proccess')
 
 
         contact = Contact(user_id = user_id, listing_id = listing_id, listing = listing, name = name, email = email, phone = phone, message = message )
         contact.save()
-
-        send_mail(
-            'Property Listing Inquiry',
-            'There has been inquiry for ' + listing + '. Sign in to the admin panel for more details.',
-            'kingsplaza58@gmail.com',
-            [realtor_email, 'kingsplaza58@gmail.com']
-        )
 
         messages.success(request, "Your request have been submitted. A realtor will get back to you soon.")
         return redirect('success')
@@ -146,3 +140,6 @@ def ceeus(request):
 
 def success(request):
     return render(request, 'success.html')
+    
+def order_in_p(request):
+    return render(request, 'order-in-proccess.html')
