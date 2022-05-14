@@ -7,7 +7,6 @@ Automat==20.2.0
 backports.entry-points-selectable==1.1.1
 beautifulsoup4==4.10.0
 billiard==3.5.0.5
-bokeh==2.4.2
 bs4==0.0.1
 bson==0.5.10
 celery==4.2.0rc1
@@ -78,7 +77,6 @@ smart-open==5.2.1
 soupsieve==2.3.1
 sqlparse==0.3.0
 threadpoolctl==3.1.0
-tornado==4.5.3
 Twisted==21.7.0
 txaio==21.2.1
 typing_extensions==4.0.1
