@@ -32,11 +32,12 @@ class CategoryView(View):
         return render(self.request, "category.html", context)
 
 @login_required
-class PropertyDetailView(DetailView):
-    model = Property
-    template_name = 'listing.html'
-    context_object_name = 'property'
-    pk_url_kwarg = 'id'
+def PropertyDetail(request):
+    property = get_object_or_404(Property, pk = object_id)
+    context = {
+        'property':property
+    }
+    return render(request, 'listing.html', context)
 
 
 
