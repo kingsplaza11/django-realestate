@@ -31,16 +31,14 @@ class CategoryView(View):
         }
         return render(self.request, "category.html", context)
 
+class PropertyDetailView(DetailView):
+    model = Property
+    template_name = 'listing.html'
+    context_object_name = 'property'
+    pk_url_kwarg = 'id'
+
+
 @login_required
-def PropertyDetail(request):
-    property = get_object_or_404(Property, pk = object_id)
-    context = {
-        'property':property
-    }
-    return render(request, 'listing.html', context)
-
-
-
 def contacts(request):
     if request.method == "POST":
         user_id = request.POST['user_id']
